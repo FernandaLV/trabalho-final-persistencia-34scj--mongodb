@@ -4,13 +4,13 @@ import java.util.List;
 
 public class SalesOrderResponse {
     private Integer id;
-    private Integer customerId;
+    private String customerId;
     private String status;
     private List<ProductDTO> itens;
 
-    public SalesOrderResponse(Integer id, Integer customerId, String status, List<ProductDTO> itens) {
+    public SalesOrderResponse(Integer id, String string, String status, List<ProductDTO> itens) {
         this.id = id;
-        this.customerId = customerId;
+        this.customerId = string;
         this.status = status;
         this.itens = itens;
     }
@@ -23,11 +23,11 @@ public class SalesOrderResponse {
         this.id = id;
     }
 
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 

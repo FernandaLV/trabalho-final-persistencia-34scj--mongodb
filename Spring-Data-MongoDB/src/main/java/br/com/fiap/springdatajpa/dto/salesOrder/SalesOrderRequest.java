@@ -5,16 +5,16 @@ import java.util.List;
 
 public class SalesOrderRequest {
     @NotNull
-    private Integer customerId;
+    private String customerId;
 
     @NotNull
     private List<ProductDTO> itens;
 
-    public Integer getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
