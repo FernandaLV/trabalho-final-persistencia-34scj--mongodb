@@ -1,22 +1,22 @@
 package br.com.fiap.springdatajpa.dto.category;
 
 public class CategoryResponse {
-    private Integer id;
+    private String id;
     private String name;
 
     public CategoryResponse() {
     }
 
-    public CategoryResponse(Integer id, String name) {
+    public CategoryResponse(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CategoryRepository extends CrudRepository<Category, Integer>{
+public interface CategoryRepository extends CrudRepository<Category, String>{
 
-    Optional<List<Category>> findByIdIn(Collection<Integer> ids);
+    Optional<List<Category>> findByIdIn(Collection<String> ids);
 }

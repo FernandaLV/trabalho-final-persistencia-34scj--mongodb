@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Product createProduct(Product product) {
-		List<Integer> ids = new ArrayList<>();
+		List<String> ids = new ArrayList<>();
 		product.getCategories().stream().forEach(category -> ids.add(category.getId()));
 		Optional<List<Category>> categories = categoryRepository.findByIdIn(ids);
 
@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
 		Product storedProduct = productRepository.findById(product.getId()).orElseThrow(() ->
 				new ResponseError(HttpStatus.NOT_FOUND, "Produto não encontrado"));
 
-		List<Integer> ids = new ArrayList<>();
+		List<String> ids = new ArrayList<>();
 		product.getCategories().stream().forEach(category -> ids.add(category.getId()));
 		Optional<List<Category>> categories = categoryRepository.findByIdIn(ids);
 

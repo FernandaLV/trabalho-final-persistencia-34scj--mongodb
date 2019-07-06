@@ -1,20 +1,20 @@
 package br.com.fiap.springdatajpa.dto.category;
 
 public class CategoryDTO {
-    private Integer id;
+    private String id;
 
     public CategoryDTO() {
     }
 
-    public CategoryDTO(Integer id) {
+    public CategoryDTO(String id) {
         this.id = id;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

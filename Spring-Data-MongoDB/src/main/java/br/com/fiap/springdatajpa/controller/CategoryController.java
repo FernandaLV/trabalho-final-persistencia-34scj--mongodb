@@ -55,7 +55,7 @@ public class CategoryController {
      */
     @RequestMapping(method = RequestMethod.GET, value = "/{id}",
             produces = "application/json", headers = "Accept=application/json")
-    public ResponseEntity<CategoryResponse> getCategory(@PathVariable("id") Integer id) {
+    public ResponseEntity<CategoryResponse> getCategory(@PathVariable("id") String id) {
         Category categoryResponse = categoryService.getCategoryById(id);
 
         return ResponseEntity.ok(new CategoryResponse(categoryResponse.getId(), categoryResponse.getName()));
@@ -67,7 +67,7 @@ public class CategoryController {
      */
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}",
             produces = "application/json", headers = "Accept=application/json")
-    public ResponseEntity<?> deleteCategory(@PathVariable("id") Integer id) {
+    public ResponseEntity<?> deleteCategory(@PathVariable("id") String id) {
         categoryService.deleteCategory(id);
 
         return ResponseEntity.noContent().build();
@@ -80,7 +80,7 @@ public class CategoryController {
      */
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}",
             produces = "application/json", headers = "Accept=application/json")
-    public ResponseEntity<?> updateCategory(@PathVariable("id") Integer id,
+    public ResponseEntity<?> updateCategory(@PathVariable("id") String id,
                                             @Valid @RequestBody CategoryRequest categoryRequest) {
         categoryService.updateCategory(new Category(id, categoryRequest.getName()));
         return ResponseEntity.noContent().build();

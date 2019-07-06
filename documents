@@ -27,5 +27,16 @@ customer{
 category{
 	Object Id _id
 	String name
-	Integer inventoryAmount
 }
+--------------------------------
+product{
+	Object Id _id
+	String description
+	String name
+	Double price
+	Array category
+	{
+		Object Id idCategory
+	}
+}
+
