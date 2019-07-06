@@ -1,30 +1,38 @@
 package br.com.fiap.springdatajpa.model;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 
 public class Customer {
 
+	/**
+	 * Chave criada pelo próprio MongoDB
+	 */
 	@Id
-	private Integer id;
+	private String id;
 
 	private String name;
 	private String surname;
 	private Date birthDate;
 	private char gender;
 
-	private Set<Address> address = new HashSet<>();
+	private Set<Address> address;
 
-	private Set<String> phones = new HashSet<>();
+	private Set<String> phones;
 
-	private List<SalesOrder> salesOrders = new ArrayList<>();
+//	private List<SalesOrder> salesOrders = new ArrayList<>();
 
 	public Customer() {
+	}
+
+	public Customer(String name, String surname, Date birthDate, char gender, Set<String> phones) {
+		this.name = name;
+		this.surname = surname;
+		this.birthDate = birthDate;
+		this.gender = gender;
+		this.phones = phones;
 	}
 
 	public Customer(String name, String surname, Date birthDate, char gender, Set<Address> address,
@@ -37,7 +45,7 @@ public class Customer {
 		this.phones = phones;
 	}
 
-	public Customer(Integer id, String name, String surname, Date birthDate, char gender, Set<Address> address,
+	public Customer(String id, String name, String surname, Date birthDate, char gender, Set<Address> address,
 					Set<String> phones) {
 		this.id = id;
 		this.name = name;
@@ -48,23 +56,11 @@ public class Customer {
 		this.phones = phones;
 	}
 
-	public Customer(Integer id, String name, String surname, Date birthDate, char gender, Set<Address> address,
-					Set<String> phones, List<SalesOrder> salesOrders) {
-		this.id = id;
-		this.name = name;
-		this.surname = surname;
-		this.birthDate = birthDate;
-		this.gender = gender;
-		this.address = address;
-		this.phones = phones;
-		this.salesOrders = salesOrders;
-	}
-
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -115,15 +111,4 @@ public class Customer {
 	public void setPhones(Set<String> phones) {
 		this.phones = phones;
 	}
-
-	public List<SalesOrder> getSalesOrders() {
-		return salesOrders;
-	}
-
-	public void setSalesOrders(List<SalesOrder> salesOrders) {
-		this.salesOrders = salesOrders;
-	}
-	
-	
-
 }

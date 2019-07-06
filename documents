@@ -1,0 +1,31 @@
+customer{
+	Object Id _id
+	
+	String name
+	String surname
+	Date birthDate
+	String gender
+
+	Array address
+	{
+		String street
+		Integer number
+		String complement
+		String postalCode
+		String city
+		String province
+		String country
+		String type
+	}
+
+	Array phones
+	{
+		String phone
+	}
+}
+--------------------------------
+category{
+	Object Id _id
+	String name
+	Integer inventoryAmount
+}

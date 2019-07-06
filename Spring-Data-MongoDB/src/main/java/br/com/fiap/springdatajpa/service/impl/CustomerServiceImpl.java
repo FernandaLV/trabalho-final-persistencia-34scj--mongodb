@@ -1,18 +1,17 @@
 package br.com.fiap.springdatajpa.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import br.com.fiap.springdatajpa.advice.ResponseError;
-import br.com.fiap.springdatajpa.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import br.com.fiap.springdatajpa.model.Customer;
-import br.com.fiap.springdatajpa.repository.CustomerRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import br.com.fiap.springdatajpa.advice.ResponseError;
+import br.com.fiap.springdatajpa.model.Customer;
+import br.com.fiap.springdatajpa.repository.CustomerRepository;
+import br.com.fiap.springdatajpa.service.CustomerService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -27,18 +26,18 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public Customer getCustomerById(Integer id) {
+	public Customer getCustomerById(String id) {
 		return customerRepository.findById(id).orElseThrow(() ->
 				new ResponseError(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
 	}
 
 	@Override
-	public Customer addCustomer(Customer customer) {
+	public Customer createCustomer(Customer customer) {
 		return customerRepository.save(customer);
 	}
 
 	@Override
-	public Customer updateCustomer(Customer customer) {
+	public void updateCustomer(Customer customer) {
 		Customer storedCustomer = customerRepository.findById(customer.getId()).orElseThrow(() ->
 				new ResponseError(HttpStatus.NOT_FOUND, "Cliente não encontrado"));
 
@@ -47,12 +46,13 @@ public class CustomerServiceImpl implements CustomerService {
 		storedCustomer.setGender(customer.getGender());
 		storedCustomer.setBirthDate(customer.getBirthDate());
 		storedCustomer.setAddress(customer.getAddress());
+		storedCustomer.setPhones(customer.getPhones());
 
-		return customerRepository.save(customer);
+		customerRepository.save(storedCustomer);
 	}
 
 	@Override
-	public void deleteCustomer(Integer id) {
+	public void deleteCustomer(String id) {
 		customerRepository.delete(customerRepository.findById(id).orElseThrow(() ->
 				new ResponseError(HttpStatus.NOT_FOUND, "Cliente não encontrado")));
 	}

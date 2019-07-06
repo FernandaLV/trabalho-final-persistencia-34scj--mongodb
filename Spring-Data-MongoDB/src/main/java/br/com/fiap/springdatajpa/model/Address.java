@@ -6,8 +6,11 @@ import br.com.fiap.springdatajpa.model.enums.AddressType;
 
 public class Address {
 
+	/**
+	 * Chave criada pelo próprio MongoDB
+	 */
 	@Id
-	private Integer id;
+	private String id;
 
 	private String street;
 	private Integer number;
@@ -17,7 +20,7 @@ public class Address {
 	private String province;
 	private String country;
 
-	private Integer type;
+	private AddressType type;
 
 	public Address(){}
 
@@ -31,11 +34,11 @@ public class Address {
 		this.city = city;
 		this.province = province;
 		this.country = country;
-		this.type = (type == null) ? null : type.getCode();
+		this.type = type;
 	}
 
-	public Address(Integer id, String street, Integer number, String complement, String postalCode, String city,
-				   String province, String country, Customer cliente, AddressType type) {
+	public Address(String id, String street, Integer number, String complement, String postalCode, String city,
+				   String province, String country, AddressType type) {
 		super();
 		this.id = id;
 		this.street = street;
@@ -45,14 +48,14 @@ public class Address {
 		this.city = city;
 		this.province = province;
 		this.country = country;
-		this.type = (type == null) ? null : type.getCode();
+		this.type = type;
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -111,17 +114,11 @@ public class Address {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-
-	public AddressType getType() {
-		return AddressType.toEnum(type);
-	}
+	
+	public AddressType getType() { return type;	}
 
 	public void setType(AddressType type) {
-		this.type = type.getCode();
+		this.type = type;
 	}
-	
-	
-	
-	
 
 }

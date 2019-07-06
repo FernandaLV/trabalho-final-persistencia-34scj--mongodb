@@ -1,15 +1,24 @@
 package br.com.fiap.springdatajpa.model;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="sales_order_item")
 public class SalesOrderItem {
 
-	@Id
+	@EmbeddedId
 	private SalesOrderItemPK id = new SalesOrderItemPK();
 
 	private Integer quantity;
 
 	private Double price;
+
+	public SalesOrderItem(SalesOrderItemPK id, Integer quantity) {
+		this.id = id;
+		this.quantity = quantity;
+	}
 
 	public SalesOrderItem(SalesOrderItemPK id, Integer quantity, Double price) {
 		super();
@@ -19,8 +28,6 @@ public class SalesOrderItem {
 	}	
 
 	public SalesOrderItem() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public SalesOrderItemPK getId() {

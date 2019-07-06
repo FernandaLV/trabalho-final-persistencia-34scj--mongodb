@@ -1,11 +1,23 @@
 package br.com.fiap.springdatajpa.dto.product;
 
+import br.com.fiap.springdatajpa.dto.category.CategoryDTO;
+
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
 public class ProductRequest {
 
+    @NotNull
     private String name;
+
+    @NotNull
     private String description;
+
+    @NotNull
     private Double price;
-    private Integer categoryId;
+
+    @NotNull
+    private List<CategoryDTO> categories;
 
     public String getName() {
         return name;
@@ -31,11 +43,11 @@ public class ProductRequest {
         this.price = price;
     }
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public List<CategoryDTO> getCategories() {
+        return categories;
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
+    public void setCategories(List<CategoryDTO> categories) {
+        this.categories = categories;
     }
 }

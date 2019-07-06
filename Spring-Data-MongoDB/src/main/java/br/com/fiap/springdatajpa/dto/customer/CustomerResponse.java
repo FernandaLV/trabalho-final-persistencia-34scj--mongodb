@@ -7,7 +7,7 @@ public class CustomerResponse {
     public CustomerResponse() {
     }
 
-    public CustomerResponse(Integer id, String name, String surname, String birthDate, Character gender,
+    public CustomerResponse(String id, String name, String surname, String birthDate, Character gender,
                             List<AddressDTO> address, List<PhoneDTO> phones) {
         this.id = id;
         this.name = name;
@@ -18,7 +18,7 @@ public class CustomerResponse {
         this.phones = phones;
     }
 
-    private Integer id;
+    private String id;
     private String name;
     private String surname;
     private String birthDate;
@@ -26,11 +26,11 @@ public class CustomerResponse {
     private List<AddressDTO> address;
     private List<PhoneDTO> phones;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

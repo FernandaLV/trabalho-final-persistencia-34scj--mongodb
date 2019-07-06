@@ -2,23 +2,31 @@ package br.com.fiap.springdatajpa.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Embeddable;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Embeddable
 public class SalesOrderItemPK implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "sales_order_id")
 	private SalesOrder salesOrder;
 
-	private Inventory inventory;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "product_id")
+	private Product product;
 
-	public SalesOrderItemPK(SalesOrder salesOrder, Inventory inventory) {
+	public SalesOrderItemPK(SalesOrder salesOrder, Product product) {
 		super();
 		this.salesOrder = salesOrder;
-		this.inventory = inventory;
+		this.product = product;
 	}
 
 	public SalesOrderItemPK() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public SalesOrder getSalesOrder() {
@@ -29,12 +37,12 @@ public class SalesOrderItemPK implements Serializable {
 		this.salesOrder = salesOrder;
 	}
 
-	public Inventory getInventory() {
-		return inventory;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setInventory(Inventory inventory) {
-		this.inventory = inventory;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 }
