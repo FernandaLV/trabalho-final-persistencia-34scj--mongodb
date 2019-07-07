@@ -5,13 +5,13 @@
 | RM     	| NOME                     	|
 |--------	|--------------------------	|
 | 334242 	| BRUNO DELPHINO ZAMBOTTI  	|
-|        	| DIEGO LANDI RIBEIRO      	|
+| 333554  	| DIEGO LANDI RIBEIRO      	|
 | 333906 	| EDUARDO MATOSO DE LIMA   	|
 | 333792 	| FERNANDA LEMBO VEDOVELLO 	|
 | 333788 	| GIOVANI SILVA            	|
 | 334110 	| HENRIQUE SUEL DA SILVA   	|
 | 334151 	| MARCELO ZANI             	|
-| 333515 	| RONALDO C LEITE          	|E
+| 333515 	| RONALDO CERQUEIRA LEITE   |
 
 
 ## Etapas de produção dos projetos: 
@@ -88,9 +88,6 @@
 > Excluir um produto do estoque  
 
 ## Modelo de Dados:
-![](modelo.png)
-
-### Detalhes do modelo:
 Um cliente tem seu nome, sobrenome, gênero, e data de nascimento, além disso ele pode ter um ou mais telefones para contato e um ou mais endereços. 
 
 Cada cliente pode ter um ou mais pedidos de vendas, que além de data de criação e situação do pedido, possui um endereço para entrega e um ou mais produtos atrelados. 
@@ -161,4 +158,4 @@ Para realizar um teste integrado e completo, um dos fluxos recomendados é o seg
 
 ### Links:
 
-- #### [Repositório](https://github.com/ronaldoleitte1975/trabalho-final-persistencia-34scj)
+- #### [Repositório](https://github.com/FernandaLV/trabalho-final-persistencia-34scj--mongodb)
