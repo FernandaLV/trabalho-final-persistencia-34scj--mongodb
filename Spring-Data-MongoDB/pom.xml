@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fiap</groupId>
-	<artifactId>Spring-Data-MongoDB</artifactId>
+	<artifactId>Spring-Data-JPA</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Spring-Data-MongoDB</name>
+	<name>Spring-Data-JPA</name>
 	<description>Resolução do Exercicio 5.c Disciplina JPA</description>
 
 	<properties>
