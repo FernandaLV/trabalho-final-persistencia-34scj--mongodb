@@ -5,7 +5,6 @@ import br.com.fiap.spring.data.mongodb.dto.inventory.InventoryResponse;
 import br.com.fiap.spring.data.mongodb.dto.inventory.InventoryUpdateRequest;
 import br.com.fiap.spring.data.mongodb.model.Inventory;
 import br.com.fiap.spring.data.mongodb.service.InventoryService;
-;
 import br.com.fiap.spring.data.mongodb.model.Product;
 import br.com.fiap.spring.data.mongodb.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
