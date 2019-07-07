@@ -8,6 +8,8 @@ import java.util.stream.StreamSupport;
 
 import br.com.fiap.spring.data.mongodb.advice.ResponseError;
 import br.com.fiap.spring.data.mongodb.model.Category;
+import br.com.fiap.spring.data.mongodb.model.SalesOrder;
+import br.com.fiap.spring.data.mongodb.model.SalesOrderItem;
 import br.com.fiap.spring.data.mongodb.repository.CategoryRepository;
 import br.com.fiap.spring.data.mongodb.repository.InventoryRepository;
 import br.com.fiap.spring.data.mongodb.repository.ProductRepository;
@@ -102,7 +104,14 @@ public class ProductServiceImpl implements ProductService {
 			throw new ResponseError(HttpStatus.PRECONDITION_FAILED, "O produto informado possui estoque associado.");
 		}
 
-		//TODO: Implementar validação de não poder deletar se tiver um salesOrderItem
+		List<SalesOrder> salesOrders = salesOrderRepository.findAll();
+
+		for (SalesOrder salesOrder : salesOrders) {
+			for (SalesOrderItem salesOrderItem : salesOrder.getItens()) {
+				if (salesOrderItem.getId().getProduct().getId().equals(product.getId()))
+					throw new ResponseError(HttpStatus.PRECONDITION_FAILED, "O produto informado possui ao menos um pedido de venda associado.");
+			}
+		}
 
 		productRepository.delete(product);
 		
