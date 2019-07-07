@@ -2,9 +2,6 @@ package br.com.fiap.spring.data.mongodb.model;
 
 import org.springframework.data.annotation.Id;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Category {
 
 	@Id

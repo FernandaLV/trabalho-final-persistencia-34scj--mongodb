@@ -4,17 +4,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import br.com.fiap.spring.data.mongodb.advice.ResponseError;
+import br.com.fiap.spring.data.mongodb.model.Customer;
 import br.com.fiap.spring.data.mongodb.model.SalesOrder;
-import br.com.fiap.spring.data.mongodb.model.SalesOrderItem;
 import br.com.fiap.spring.data.mongodb.repository.CustomerRepository;
 import br.com.fiap.spring.data.mongodb.repository.SalesOrderRepository;
 import br.com.fiap.spring.data.mongodb.service.CustomerService;
-import br.com.fiap.spring.data.mongodb.advice.ResponseError;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import br.com.fiap.spring.data.mongodb.model.Customer;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
