@@ -1,5 +1,6 @@
 package br.com.fiap.spring.data.mongodb.service.impl;
 
+import br.com.fiap.spring.data.mongodb.model.Product;
 import br.com.fiap.spring.data.mongodb.repository.ProductRepository;
 import br.com.fiap.spring.data.mongodb.service.CategoryService;
 import br.com.fiap.spring.data.mongodb.advice.ResponseError;
@@ -17,6 +18,9 @@ import java.util.stream.StreamSupport;
 public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
+
+	@Autowired
+	private ProductRepository productRepository;
 
 	@Override
 	public List<Category> getAllCategories() {
@@ -50,6 +54,15 @@ public class CategoryServiceImpl implements CategoryService {
 	public void deleteCategory(String id) {
 		Category category = categoryRepository.findById(id).orElseThrow(() ->
 				new ResponseError(HttpStatus.NOT_FOUND, "Categoria não encontrada"));
+
+		List<Product> products = productRepository.findAll();
+
+		for (Product product : products) {
+			for (Category categoryItem : product.getCategories()) {
+				if (category.getId().equals(categoryItem.getId()))
+					throw new ResponseError(HttpStatus.UNPROCESSABLE_ENTITY, "Não é possível excluir a categoria, pois ela tem produtos associados");
+			}
+		}
 
 		categoryRepository.delete(category);
 	}
