@@ -13,10 +13,15 @@
 | 334151 	| MARCELO ZANI             	|
 | 333515 	| RONALDO CERQUEIRA LEITE   |
 
+## Links:
+
+- ### [Repositório Spring Data JPA](https://github.com/ronaldoleitte1975/trabalho-final-persistencia-34scj)
+- ### [Repositório MongoDB](https://github.com/FernandaLV/trabalho-final-persistencia-34scj--mongodb)
 
 ## Etapas de produção dos projetos: 
 
 - Modelagem do banco de dados 
+- Escolha da opção de solução
 - Desenvolvimento das entidades 
 - Definição das funcionalidades 
 - Definição dos contratos de entrada e saída de informação 
@@ -24,6 +29,19 @@
 - Testes das funcionalidades  
 - Revisão e ajustes 
 - Documentação 
+
+## Escolha da solução
+
+a. Spring Data JPA + Cache Redis (os dois em um único projeto).
+* __Descartada__: Não identificamos a necessidade de utilização de cache, exceto para lista de cidades, estados, etc., logo utilizaríamos para uma pequena parte da solução, e não nos foi apresentado um requisito de alta performance, ou de que a aplicação deveria estar preparada para um grande volume de transações, o que no caso jsutificaria uma solução com cache.
+
+b. Spring Data JPA (em um projeto separado) e Neo4J (em outro projeto separado).
+* __Descartada__: Neo4J foi feito para grafos, e seu principal valor se dá em casos onde o relacionamento das informações seria o mais importante, como o foco do exercício estava não somente no relacionamento mas principalmente no conteúdo, entendemos que não é uma boa aplicação para o nosso problema.
+
+c. Spring Data JPA (em um projeto separado) e MongoDB (em outro projeto separado, sendo que neste projeto
+* __Escolhida__: Optamos por essa técnica, pois o MongoDB mostrou-se o mais adequado para a nossa solução. Com ele conseguimos tratar de forma mais otimizada algumas informações que em comparação com um banco relacional como o mysql seria necessária a criação de diversas tabelas para realizar o armazenamento da mesma informação. 
+ 
+    Apenas como comparação, na solução com banco relacional foi necessária a utilização de dez tabelas de conteúdo e mais seis tabelas de apoio para a geração das chaves primárias de algumas delas, já na solução com banco não realcional orientado a documentos, com apenas cinco tabelas de conteúdo armazenamos a mesma informação.
 
 ## Funcionalidades:
 
