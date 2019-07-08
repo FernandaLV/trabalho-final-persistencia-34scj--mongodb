@@ -13,10 +13,15 @@
 | 334151 	| MARCELO ZANI             	|
 | 333515 	| RONALDO CERQUEIRA LEITE   |
 
+## Links:
+
+- ### [Repositório MongoDB](https://github.com/FernandaLV/trabalho-final-persistencia-34scj--mongodb)
+- ### [Repositório Spring Data JPA](https://github.com/ronaldoleitte1975/trabalho-final-persistencia-34scj)
 
 ## Etapas de produção dos projetos: 
 
 - Modelagem do banco de dados 
+- Escolha da opção de solução
 - Desenvolvimento das entidades 
 - Definição das funcionalidades 
 - Definição dos contratos de entrada e saída de informação 
@@ -24,6 +29,18 @@
 - Testes das funcionalidades  
 - Revisão e ajustes 
 - Documentação 
+
+## Escolha da solução
+
+a. Spring Data JPA + Cache Redis (os dois em um único projeto).
+* __Descartado__: Não identificamos necessidade de cache, exceto para lista de cidades, estados, etc., logo utilizaríamos para uma pequena parte da solução, e não nos foi apresentada necessidade de alta performance, ou grande volume de transações, o que pediria uma solução com cache.
+
+b. Spring Data JPA (em um projeto separado) e Neo4J (em outro projeto separado).
+* __Descartado__: Neo4J foi feito para grafos, apesar de conseguirmos modelar, entendemos que não é uma boa aplicação para o nosso problema.
+
+c. Spring Data JPA (em um projeto separado) e MongoDB (em outro projeto separado, sendo
+que neste projeto
+* __Escolhido__: MongoDB é adequado para a nossa solução, conseguimos usálo bem com a nossa modelagem.
 
 ## Funcionalidades:
 
@@ -88,6 +105,7 @@
 > Excluir um produto do estoque  
 
 ## Modelo de Dados:
+
 Um cliente tem seu nome, sobrenome, gênero, e data de nascimento, além disso ele pode ter um ou mais telefones para contato e um ou mais endereços. 
 
 Cada cliente pode ter um ou mais pedidos de vendas, que além de data de criação e situação do pedido, possui um endereço para entrega e um ou mais produtos atrelados. 
@@ -158,4 +176,5 @@ Para realizar um teste integrado e completo, um dos fluxos recomendados é o seg
 
 ### Links:
 
-- #### [Repositório](https://github.com/FernandaLV/trabalho-final-persistencia-34scj--mongodb)
+- #### [Repositório MongoDB](https://github.com/FernandaLV/trabalho-final-persistencia-34scj--mongodb)
+- #### [Repositório Spring Data JPA](https://github.com/ronaldoleitte1975/trabalho-final-persistencia-34scj)
